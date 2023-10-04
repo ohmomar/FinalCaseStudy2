@@ -10,7 +10,7 @@
 		"typeProperties": {
 			"location": {
 				"type": "HttpServerLocation",
-				"relativeUrl": "EVCarbonEmission/DataSets/CO2 Emissions_Canada.csv"
+				"relativeUrl": "EVCarbonEmission/DataSets/CO2%Emissions_Canada.csv"
 			},
 			"columnDelimiter": ",",
 			"rowDelimiter": "\n",
