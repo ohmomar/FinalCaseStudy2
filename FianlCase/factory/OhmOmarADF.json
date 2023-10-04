@@ -1,0 +1,9 @@
+{
+	"name": "OhmOmarADF",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "df29c939-d8b4-4ad1-856b-beaf617e7d01",
+		"tenantId": "dce87315-8ffa-4a01-ab40-0de5a7214b2f"
+	}
+}
