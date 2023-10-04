@@ -1,0 +1,9 @@
+{
+	"name": "CaseStudy2DataFac",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "1c5041c9-788c-4b84-96c9-b77e330690f3",
+		"tenantId": "dce87315-8ffa-4a01-ab40-0de5a7214b2f"
+	}
+}
