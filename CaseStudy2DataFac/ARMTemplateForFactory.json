@@ -19,13 +19,13 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'accountKey' of 'AzureDataLakeStoragetoCopy'"
 		},
-		"GitData_properties_typeProperties_url": {
-			"type": "string",
-			"defaultValue": "https://github.com/manojkumarsingh77/Shell2023/tree/main/EVCarbonEmission/DataSets/"
-		},
 		"AzureDataLakeStoragetoCopy_properties_typeProperties_url": {
 			"type": "string",
 			"defaultValue": "https://casestudy2storageacc.dfs.core.windows.net/"
+		},
+		"GitData_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://github.com/manojkumarsingh77/Shell2023/tree/main/EVCarbonEmission/DataSets/"
 		}
 	},
 	"variables": {
@@ -82,9 +82,9 @@
 											"ordinal": 1
 										},
 										"sink": {
+											"name": "Column1",
 											"type": "String",
-											"physicalType": "String",
-											"ordinal": 1
+											"physicalType": "String"
 										}
 									}
 								],
@@ -97,14 +97,14 @@
 						},
 						"inputs": [
 							{
-								"referenceName": "SourceDataset_3nk",
+								"referenceName": "copydelimited",
 								"type": "DatasetReference",
 								"parameters": {}
 							}
 						],
 						"outputs": [
 							{
-								"referenceName": "DestinationDataset_3nk",
+								"referenceName": "copysinkdelimited",
 								"type": "DatasetReference",
 								"parameters": {}
 							}
@@ -117,12 +117,12 @@
 				"annotations": []
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/datasets/SourceDataset_3nk')]",
-				"[concat(variables('factoryId'), '/datasets/DestinationDataset_3nk')]"
+				"[concat(variables('factoryId'), '/datasets/copydelimited')]",
+				"[concat(variables('factoryId'), '/datasets/copysinkdelimited')]"
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/DelimitedText1')]",
+			"name": "[concat(parameters('factoryName'), '/copydelimited')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
@@ -135,13 +135,12 @@
 				"typeProperties": {
 					"location": {
 						"type": "HttpServerLocation",
-						"relativeUrl": "EVCarbonEmission/DataSets/CO2%20Emissions_Canada.csv"
+						"relativeUrl": "CO2 Emissions_Canada.csv"
 					},
 					"columnDelimiter": ",",
-					"rowDelimiter": "\n",
 					"escapeChar": "\\",
-					"firstRowAsHeader": false,
-					"quoteChar": null
+					"firstRowAsHeader": true,
+					"quoteChar": "\""
 				},
 				"schema": []
 			},
@@ -150,7 +149,7 @@
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/DestinationDataset_3nk')]",
+			"name": "[concat(parameters('factoryName'), '/copysinkdelimited')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
@@ -168,46 +167,13 @@
 					},
 					"columnDelimiter": ",",
 					"escapeChar": "\\",
-					"firstRowAsHeader": false,
+					"firstRowAsHeader": true,
 					"quoteChar": "\""
 				},
 				"schema": []
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/linkedServices/AzureDataLakeStoragetoCopy')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/SourceDataset_3nk')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "GitData",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "DelimitedText",
-				"typeProperties": {
-					"location": {
-						"type": "HttpServerLocation",
-						"relativeUrl": "CO2 Emissions_Canada.csv"
-					},
-					"columnDelimiter": ",",
-					"rowDelimiter": "\n",
-					"escapeChar": "\\",
-					"firstRowAsHeader": false,
-					"quoteChar": null
-				},
-				"schema": [
-					{
-						"name": "  <link rel=\"dns-prefetch\" href=\"https://github-cloud.s3.amazonaws.com\">",
-						"type": "String"
-					}
-				]
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/GitData')]"
 			]
 		},
 		{
@@ -232,6 +198,23 @@
 				"type": "AzureBlobStorage",
 				"typeProperties": {
 					"connectionString": "[parameters('AzureBlobStorage511_connectionString')]"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/AzureDataLakeStoragetoCopy')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureBlobFS",
+				"typeProperties": {
+					"url": "[parameters('AzureDataLakeStoragetoCopy_properties_typeProperties_url')]",
+					"accountKey": {
+						"type": "SecureString",
+						"value": "[parameters('AzureDataLakeStoragetoCopy_accountKey')]"
+					}
 				}
 			},
 			"dependsOn": []
@@ -280,23 +263,6 @@
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/pipelines/CopyPipeline_3nk')]"
 			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/AzureDataLakeStoragetoCopy')]",
-			"type": "Microsoft.DataFactory/factories/linkedServices",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"annotations": [],
-				"type": "AzureBlobFS",
-				"typeProperties": {
-					"url": "[parameters('AzureDataLakeStoragetoCopy_properties_typeProperties_url')]",
-					"accountKey": {
-						"type": "SecureString",
-						"value": "[parameters('AzureDataLakeStoragetoCopy_accountKey')]"
-					}
-				}
-			},
-			"dependsOn": []
 		}
 	]
 }

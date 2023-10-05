@@ -14,11 +14,11 @@
 		"AzureDataLakeStoragetoCopy_accountKey": {
 			"value": ""
 		},
-		"GitData_properties_typeProperties_url": {
-			"value": "https://github.com/manojkumarsingh77/Shell2023/tree/main/EVCarbonEmission/DataSets/"
-		},
 		"AzureDataLakeStoragetoCopy_properties_typeProperties_url": {
 			"value": "https://casestudy2storageacc.dfs.core.windows.net/"
+		},
+		"GitData_properties_typeProperties_url": {
+			"value": "https://github.com/manojkumarsingh77/Shell2023/tree/main/EVCarbonEmission/DataSets/"
 		},
 		"containerUri": {
 			"value": ""
