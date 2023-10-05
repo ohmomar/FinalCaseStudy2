@@ -228,7 +228,7 @@
 					"notebookPath": "/Users/shellunext_1693422065148@npunext.onmicrosoft.com/Databricks"
 				},
 				"linkedServiceName": {
-					"referenceName": "AzureDatabricksLinkedService",
+					"referenceName": "AzureDatabricksLinkedServiceFinal",
 					"type": "LinkedServiceReference"
 				}
 			}
