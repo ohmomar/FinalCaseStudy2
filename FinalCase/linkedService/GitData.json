@@ -4,7 +4,7 @@
 		"annotations": [],
 		"type": "HttpServer",
 		"typeProperties": {
-			"url": "https://raw.githubusercontent.com",
+			"url": "https://raw.githubusercontent.com/manojkumarsingh77/Shell2023/main/EVCarbonEmission/DataSets/",
 			"enableServerCertificateValidation": true,
 			"authenticationType": "Anonymous"
 		}
