@@ -11,7 +11,7 @@
 			"location": {
 				"type": "AzureBlobFSLocation",
 				"folderPath": "PARENT/RAW",
-				"fileSystem": "blob"
+				"fileSystem": "blobstorage"
 			},
 			"columnDelimiter": ",",
 			"escapeChar": "\\",
