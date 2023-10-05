@@ -14,8 +14,14 @@
 		"AzureDataLakeStoragetoCopy_accountKey": {
 			"value": ""
 		},
+		"AzureDatabricksLinkedService_accessToken": {
+			"value": ""
+		},
 		"AzureDataLakeStoragetoCopy_properties_typeProperties_url": {
 			"value": "https://casestudy2storageacc.dfs.core.windows.net/"
+		},
+		"AzureDatabricksLinkedService_properties_typeProperties_existingClusterId": {
+			"value": "1005-054616-qjjw95fn"
 		},
 		"GitData_properties_typeProperties_url": {
 			"value": "https://raw.githubusercontent.com/manojkumarsingh77/Shell2023/main/EVCarbonEmission/DataSets/"

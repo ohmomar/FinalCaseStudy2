@@ -19,9 +19,17 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'accountKey' of 'AzureDataLakeStoragetoCopy'"
 		},
+		"AzureDatabricksLinkedService_accessToken": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accessToken' of 'AzureDatabricksLinkedService'"
+		},
 		"AzureDataLakeStoragetoCopy_properties_typeProperties_url": {
 			"type": "string",
 			"defaultValue": "https://casestudy2storageacc.dfs.core.windows.net/"
+		},
+		"AzureDatabricksLinkedService_properties_typeProperties_existingClusterId": {
+			"type": "string",
+			"defaultValue": "1005-054616-qjjw95fn"
 		},
 		"GitData_properties_typeProperties_url": {
 			"type": "string",
@@ -63,8 +71,14 @@
 					"AzureDataLakeStoragetoCopy_accountKey": {
 						"value": "[parameters('AzureDataLakeStoragetoCopy_accountKey')]"
 					},
+					"AzureDatabricksLinkedService_accessToken": {
+						"value": "[parameters('AzureDatabricksLinkedService_accessToken')]"
+					},
 					"AzureDataLakeStoragetoCopy_properties_typeProperties_url": {
 						"value": "[parameters('AzureDataLakeStoragetoCopy_properties_typeProperties_url')]"
+					},
+					"AzureDatabricksLinkedService_properties_typeProperties_existingClusterId": {
+						"value": "[parameters('AzureDatabricksLinkedService_properties_typeProperties_existingClusterId')]"
 					},
 					"GitData_properties_typeProperties_url": {
 						"value": "[parameters('GitData_properties_typeProperties_url')]"
