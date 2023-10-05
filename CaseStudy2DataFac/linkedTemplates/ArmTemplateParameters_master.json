@@ -18,7 +18,7 @@
 			"value": "https://casestudy2storageacc.dfs.core.windows.net/"
 		},
 		"GitData_properties_typeProperties_url": {
-			"value": "https://raw.githubusercontent.com"
+			"value": "https://raw.githubusercontent.com/manojkumarsingh77/Shell2023/main/EVCarbonEmission/DataSets/"
 		},
 		"containerUri": {
 			"value": ""

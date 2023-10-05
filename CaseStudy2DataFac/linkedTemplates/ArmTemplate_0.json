@@ -25,7 +25,7 @@
 		},
 		"GitData_properties_typeProperties_url": {
 			"type": "string",
-			"defaultValue": "https://raw.githubusercontent.com"
+			"defaultValue": "https://raw.githubusercontent.com/manojkumarsingh77/Shell2023/main/EVCarbonEmission/DataSets/"
 		}
 	},
 	"variables": {
@@ -104,7 +104,7 @@
 				"typeProperties": {
 					"location": {
 						"type": "HttpServerLocation",
-						"relativeUrl": "manojkumarsingh77/Shell2023/main/EVCarbonEmission/DataSets/CO2%20Emissions_Canada.csv"
+						"relativeUrl": "CO2%20Emissions_Canada.csv"
 					},
 					"columnDelimiter": ",",
 					"rowDelimiter": "\n",
@@ -182,7 +182,7 @@
 					"location": {
 						"type": "AzureBlobFSLocation",
 						"folderPath": "PARENT/RAW",
-						"fileSystem": "blob"
+						"fileSystem": "blobstorage"
 					},
 					"columnDelimiter": ",",
 					"escapeChar": "\\",
