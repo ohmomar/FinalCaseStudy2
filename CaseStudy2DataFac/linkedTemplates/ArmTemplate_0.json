@@ -112,7 +112,56 @@
 					"firstRowAsHeader": true,
 					"quoteChar": "\""
 				},
-				"schema": []
+				"schema": [
+					{
+						"name": "Make",
+						"type": "String"
+					},
+					{
+						"name": "Model",
+						"type": "String"
+					},
+					{
+						"name": "Vehicle Class",
+						"type": "String"
+					},
+					{
+						"name": "Engine Size(L)",
+						"type": "String"
+					},
+					{
+						"name": "Cylinders",
+						"type": "String"
+					},
+					{
+						"name": "Transmission",
+						"type": "String"
+					},
+					{
+						"name": "Fuel Type",
+						"type": "String"
+					},
+					{
+						"name": "Fuel Consumption City (L/100 km)",
+						"type": "String"
+					},
+					{
+						"name": "Fuel Consumption Hwy (L/100 km)",
+						"type": "String"
+					},
+					{
+						"name": "Fuel Consumption Comb (L/100 km)",
+						"type": "String"
+					},
+					{
+						"name": "Fuel Consumption Comb (mpg)",
+						"type": "String"
+					},
+					{
+						"name": "CO2 Emissions(g/km)\r",
+						"type": "String"
+					}
+				]
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/linkedServices/GitData')]"
@@ -192,11 +241,144 @@
 								"mappings": [
 									{
 										"source": {
+											"name": "Make",
 											"type": "String",
-											"ordinal": 1
+											"physicalType": "String"
 										},
 										"sink": {
-											"name": "Column1",
+											"name": "Make",
+											"type": "String",
+											"physicalType": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "Model",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "Model",
+											"type": "String",
+											"physicalType": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "Vehicle Class",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "Vehicle Class",
+											"type": "String",
+											"physicalType": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "Engine Size(L)",
+											"type": "Decimal",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "Engine Size(L)",
+											"type": "String",
+											"physicalType": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "Cylinders",
+											"type": "Int32",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "Cylinders",
+											"type": "String",
+											"physicalType": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "Transmission",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "Transmission",
+											"type": "String",
+											"physicalType": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "Fuel Type",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "Fuel Type",
+											"type": "String",
+											"physicalType": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "Fuel Consumption City (L/100 km)",
+											"type": "Decimal",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "Fuel Consumption City (L/100 km)",
+											"type": "String",
+											"physicalType": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "Fuel Consumption Hwy (L/100 km)",
+											"type": "Decimal",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "Fuel Consumption Hwy (L/100 km)",
+											"type": "String",
+											"physicalType": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "Fuel Consumption Comb (L/100 km)",
+											"type": "Decimal",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "Fuel Consumption Comb (L/100 km)",
+											"type": "String",
+											"physicalType": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "Fuel Consumption Comb (mpg)",
+											"type": "Decimal",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "Fuel Consumption Comb (mpg)",
+											"type": "String",
+											"physicalType": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "CO2 Emissions(g/km)\r",
+											"type": "Decimal",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "CO2 Emissions(g/km)\r",
 											"type": "String",
 											"physicalType": "String"
 										}
