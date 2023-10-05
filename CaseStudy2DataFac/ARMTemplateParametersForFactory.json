@@ -1,0 +1,24 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "CaseStudy2DataFac"
+		},
+		"AzureBlobStorage0510_connectionString": {
+			"value": ""
+		},
+		"AzureBlobStorage511_connectionString": {
+			"value": ""
+		},
+		"GitData_password": {
+			"value": ""
+		},
+		"GitData_properties_typeProperties_url": {
+			"value": "https://github.com/manojkumarsingh77/Shell2023/blob/97197667d50b617987d21885300178d8acb9d132/EVCarbonEmission/DataSets/"
+		},
+		"GitData_properties_typeProperties_userName": {
+			"value": "ohmomar"
+		}
+	}
+}

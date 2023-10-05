@@ -1,0 +1,77 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "CaseStudy2DataFac"
+		},
+		"AzureBlobStorage0510_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'AzureBlobStorage0510'"
+		},
+		"AzureBlobStorage511_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'AzureBlobStorage511'"
+		},
+		"GitData_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'GitData'"
+		},
+		"GitData_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://github.com/manojkumarsingh77/Shell2023/blob/97197667d50b617987d21885300178d8acb9d132/EVCarbonEmission/DataSets/"
+		},
+		"GitData_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "ohmomar"
+		},
+		"containerUri": {
+			"type": "string",
+			"metadata": "URI to storage account containing linked ARM templates"
+		},
+		"containerSasToken": {
+			"type": "string",
+			"metadata": "Sas token to storage account containing linked ARM templates"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "CaseStudy2DataFac_ArmTemplate_0",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_0.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"AzureBlobStorage0510_connectionString": {
+						"value": "[parameters('AzureBlobStorage0510_connectionString')]"
+					},
+					"AzureBlobStorage511_connectionString": {
+						"value": "[parameters('AzureBlobStorage511_connectionString')]"
+					},
+					"GitData_password": {
+						"value": "[parameters('GitData_password')]"
+					},
+					"GitData_properties_typeProperties_url": {
+						"value": "[parameters('GitData_properties_typeProperties_url')]"
+					},
+					"GitData_properties_typeProperties_userName": {
+						"value": "[parameters('GitData_properties_typeProperties_userName')]"
+					}
+				}
+			},
+			"dependsOn": []
+		}
+	]
+}
