@@ -20,6 +20,9 @@
 		"AzureDatabricksLinkedServiceFinal_accessToken": {
 			"value": ""
 		},
+		"AzureDatabricksAllFinal_accessToken": {
+			"value": ""
+		},
 		"AzureDataLakeStoragetoCopy_properties_typeProperties_url": {
 			"value": "https://casestudy2storageacc.dfs.core.windows.net/"
 		},
@@ -30,6 +33,9 @@
 			"value": "https://raw.githubusercontent.com/manojkumarsingh77/Shell2023/main/EVCarbonEmission/DataSets/"
 		},
 		"AzureDatabricksLinkedServiceFinal_properties_typeProperties_existingClusterId": {
+			"value": "1005-054616-qjjw95fn"
+		},
+		"AzureDatabricksAllFinal_properties_typeProperties_existingClusterId": {
 			"value": "1005-054616-qjjw95fn"
 		}
 	}
