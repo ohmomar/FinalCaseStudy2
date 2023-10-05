@@ -28,12 +28,12 @@
 					"sink": {
 						"type": "DelimitedTextSink",
 						"storeSettings": {
-							"type": "AzureBlobStorageWriteSettings"
+							"type": "AzureBlobFSWriteSettings"
 						},
 						"formatSettings": {
 							"type": "DelimitedTextWriteSettings",
 							"quoteAllText": true,
-							"fileExtension": ".csv"
+							"fileExtension": ".txt"
 						}
 					},
 					"enableStaging": false,
@@ -42,14 +42,13 @@
 						"mappings": [
 							{
 								"source": {
-									"name": "<!DOCTYPE html>",
 									"type": "String",
-									"physicalType": "String"
+									"ordinal": 1
 								},
 								"sink": {
-									"name": "<!DOCTYPE html>",
 									"type": "String",
-									"physicalType": "String"
+									"physicalType": "String",
+									"ordinal": 1
 								}
 							}
 						],
