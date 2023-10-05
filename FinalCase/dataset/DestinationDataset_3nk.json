@@ -2,16 +2,16 @@
 	"name": "DestinationDataset_3nk",
 	"properties": {
 		"linkedServiceName": {
-			"referenceName": "AzureBlobStorage511",
+			"referenceName": "AzureDataLakeStoragetoCopy",
 			"type": "LinkedServiceReference"
 		},
 		"annotations": [],
 		"type": "DelimitedText",
 		"typeProperties": {
 			"location": {
-				"type": "AzureBlobStorageLocation",
+				"type": "AzureBlobFSLocation",
 				"folderPath": "PARENT/RAW",
-				"container": "blob"
+				"fileSystem": "blob"
 			},
 			"columnDelimiter": ",",
 			"escapeChar": "\\",
