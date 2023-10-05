@@ -1,0 +1,22 @@
+{
+	"name": "copydelimited",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "GitData",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "HttpServerLocation",
+				"relativeUrl": "CO2 Emissions_Canada.csv"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": []
+	}
+}

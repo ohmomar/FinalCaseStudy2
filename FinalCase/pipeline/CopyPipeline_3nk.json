@@ -46,9 +46,9 @@
 									"ordinal": 1
 								},
 								"sink": {
+									"name": "Column1",
 									"type": "String",
-									"physicalType": "String",
-									"ordinal": 1
+									"physicalType": "String"
 								}
 							}
 						],
@@ -61,13 +61,13 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "SourceDataset_3nk",
+						"referenceName": "copydelimited",
 						"type": "DatasetReference"
 					}
 				],
 				"outputs": [
 					{
-						"referenceName": "DestinationDataset_3nk",
+						"referenceName": "copysinkdelimited",
 						"type": "DatasetReference"
 					}
 				]
