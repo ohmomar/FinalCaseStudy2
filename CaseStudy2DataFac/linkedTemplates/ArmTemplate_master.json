@@ -23,6 +23,10 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'accessToken' of 'AzureDatabricksLinkedService'"
 		},
+		"AzureDatabricksLinkedServiceFinal_accessToken": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accessToken' of 'AzureDatabricksLinkedServiceFinal'"
+		},
 		"AzureDataLakeStoragetoCopy_properties_typeProperties_url": {
 			"type": "string",
 			"defaultValue": "https://casestudy2storageacc.dfs.core.windows.net/"
@@ -34,6 +38,10 @@
 		"GitData_properties_typeProperties_url": {
 			"type": "string",
 			"defaultValue": "https://raw.githubusercontent.com/manojkumarsingh77/Shell2023/main/EVCarbonEmission/DataSets/"
+		},
+		"AzureDatabricksLinkedServiceFinal_properties_typeProperties_existingClusterId": {
+			"type": "string",
+			"defaultValue": "1005-054616-qjjw95fn"
 		},
 		"containerUri": {
 			"type": "string",
@@ -74,6 +82,9 @@
 					"AzureDatabricksLinkedService_accessToken": {
 						"value": "[parameters('AzureDatabricksLinkedService_accessToken')]"
 					},
+					"AzureDatabricksLinkedServiceFinal_accessToken": {
+						"value": "[parameters('AzureDatabricksLinkedServiceFinal_accessToken')]"
+					},
 					"AzureDataLakeStoragetoCopy_properties_typeProperties_url": {
 						"value": "[parameters('AzureDataLakeStoragetoCopy_properties_typeProperties_url')]"
 					},
@@ -82,6 +93,9 @@
 					},
 					"GitData_properties_typeProperties_url": {
 						"value": "[parameters('GitData_properties_typeProperties_url')]"
+					},
+					"AzureDatabricksLinkedServiceFinal_properties_typeProperties_existingClusterId": {
+						"value": "[parameters('AzureDatabricksLinkedServiceFinal_properties_typeProperties_existingClusterId')]"
 					}
 				}
 			},

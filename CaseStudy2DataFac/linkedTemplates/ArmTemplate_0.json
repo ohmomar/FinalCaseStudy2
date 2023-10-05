@@ -23,6 +23,10 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'accessToken' of 'AzureDatabricksLinkedService'"
 		},
+		"AzureDatabricksLinkedServiceFinal_accessToken": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accessToken' of 'AzureDatabricksLinkedServiceFinal'"
+		},
 		"AzureDataLakeStoragetoCopy_properties_typeProperties_url": {
 			"type": "string",
 			"defaultValue": "https://casestudy2storageacc.dfs.core.windows.net/"
@@ -34,6 +38,10 @@
 		"GitData_properties_typeProperties_url": {
 			"type": "string",
 			"defaultValue": "https://raw.githubusercontent.com/manojkumarsingh77/Shell2023/main/EVCarbonEmission/DataSets/"
+		},
+		"AzureDatabricksLinkedServiceFinal_properties_typeProperties_existingClusterId": {
+			"type": "string",
+			"defaultValue": "1005-054616-qjjw95fn"
 		}
 	},
 	"variables": {
@@ -112,6 +120,24 @@
 					"url": "[parameters('GitData_properties_typeProperties_url')]",
 					"enableServerCertificateValidation": true,
 					"authenticationType": "Anonymous"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/AzureDatabricksLinkedServiceFinal')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureDatabricks",
+				"typeProperties": {
+					"domain": "https://adb-8293531287260884.4.azuredatabricks.net",
+					"accessToken": {
+						"type": "SecureString",
+						"value": "[parameters('AzureDatabricksLinkedServiceFinal_accessToken')]"
+					},
+					"existingClusterId": "[parameters('AzureDatabricksLinkedServiceFinal_properties_typeProperties_existingClusterId')]"
 				}
 			},
 			"dependsOn": []
@@ -455,7 +481,7 @@
 							"notebookPath": "/Users/shellunext_1693422065148@npunext.onmicrosoft.com/Databricks"
 						},
 						"linkedServiceName": {
-							"referenceName": "AzureDatabricksLinkedService",
+							"referenceName": "AzureDatabricksLinkedServiceFinal",
 							"type": "LinkedServiceReference"
 						}
 					}
@@ -468,7 +494,7 @@
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/copydelimited')]",
 				"[concat(variables('factoryId'), '/datasets/copysinkdelimited')]",
-				"[concat(variables('factoryId'), '/linkedServices/AzureDatabricksLinkedService')]"
+				"[concat(variables('factoryId'), '/linkedServices/AzureDatabricksLinkedServiceFinal')]"
 			]
 		},
 		{
