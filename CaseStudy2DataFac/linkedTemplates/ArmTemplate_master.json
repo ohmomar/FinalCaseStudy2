@@ -15,17 +15,17 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'AzureBlobStorage511'"
 		},
-		"GitData_password": {
+		"AzureDataLakeStoragetoCopy_accountKey": {
 			"type": "secureString",
-			"metadata": "Secure string for 'password' of 'GitData'"
+			"metadata": "Secure string for 'accountKey' of 'AzureDataLakeStoragetoCopy'"
 		},
 		"GitData_properties_typeProperties_url": {
 			"type": "string",
-			"defaultValue": "https://github.com/manojkumarsingh77/Shell2023/blob/97197667d50b617987d21885300178d8acb9d132/EVCarbonEmission/DataSets/"
+			"defaultValue": "https://github.com/manojkumarsingh77/Shell2023/tree/main/EVCarbonEmission/DataSets/"
 		},
-		"GitData_properties_typeProperties_userName": {
+		"AzureDataLakeStoragetoCopy_properties_typeProperties_url": {
 			"type": "string",
-			"defaultValue": "ohmomar"
+			"defaultValue": "https://casestudy2storageacc.dfs.core.windows.net/"
 		},
 		"containerUri": {
 			"type": "string",
@@ -60,14 +60,14 @@
 					"AzureBlobStorage511_connectionString": {
 						"value": "[parameters('AzureBlobStorage511_connectionString')]"
 					},
-					"GitData_password": {
-						"value": "[parameters('GitData_password')]"
+					"AzureDataLakeStoragetoCopy_accountKey": {
+						"value": "[parameters('AzureDataLakeStoragetoCopy_accountKey')]"
 					},
 					"GitData_properties_typeProperties_url": {
 						"value": "[parameters('GitData_properties_typeProperties_url')]"
 					},
-					"GitData_properties_typeProperties_userName": {
-						"value": "[parameters('GitData_properties_typeProperties_userName')]"
+					"AzureDataLakeStoragetoCopy_properties_typeProperties_url": {
+						"value": "[parameters('AzureDataLakeStoragetoCopy_properties_typeProperties_url')]"
 					}
 				}
 			},

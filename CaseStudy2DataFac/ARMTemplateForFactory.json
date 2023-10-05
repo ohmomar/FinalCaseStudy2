@@ -15,17 +15,17 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'AzureBlobStorage511'"
 		},
-		"GitData_password": {
+		"AzureDataLakeStoragetoCopy_accountKey": {
 			"type": "secureString",
-			"metadata": "Secure string for 'password' of 'GitData'"
+			"metadata": "Secure string for 'accountKey' of 'AzureDataLakeStoragetoCopy'"
 		},
 		"GitData_properties_typeProperties_url": {
 			"type": "string",
-			"defaultValue": "https://github.com/manojkumarsingh77/Shell2023/blob/97197667d50b617987d21885300178d8acb9d132/EVCarbonEmission/DataSets/"
+			"defaultValue": "https://github.com/manojkumarsingh77/Shell2023/tree/main/EVCarbonEmission/DataSets/"
 		},
-		"GitData_properties_typeProperties_userName": {
+		"AzureDataLakeStoragetoCopy_properties_typeProperties_url": {
 			"type": "string",
-			"defaultValue": "ohmomar"
+			"defaultValue": "https://casestudy2storageacc.dfs.core.windows.net/"
 		}
 	},
 	"variables": {
@@ -64,12 +64,12 @@
 							"sink": {
 								"type": "DelimitedTextSink",
 								"storeSettings": {
-									"type": "AzureBlobStorageWriteSettings"
+									"type": "AzureBlobFSWriteSettings"
 								},
 								"formatSettings": {
 									"type": "DelimitedTextWriteSettings",
 									"quoteAllText": true,
-									"fileExtension": ".csv"
+									"fileExtension": ".txt"
 								}
 							},
 							"enableStaging": false,
@@ -78,14 +78,13 @@
 								"mappings": [
 									{
 										"source": {
-											"name": "<!DOCTYPE html>",
 											"type": "String",
-											"physicalType": "String"
+											"ordinal": 1
 										},
 										"sink": {
-											"name": "<!DOCTYPE html>",
 											"type": "String",
-											"physicalType": "String"
+											"physicalType": "String",
+											"ordinal": 1
 										}
 									}
 								],
@@ -156,26 +155,26 @@
 			"apiVersion": "2018-06-01",
 			"properties": {
 				"linkedServiceName": {
-					"referenceName": "AzureBlobStorage511",
+					"referenceName": "AzureDataLakeStoragetoCopy",
 					"type": "LinkedServiceReference"
 				},
 				"annotations": [],
 				"type": "DelimitedText",
 				"typeProperties": {
 					"location": {
-						"type": "AzureBlobStorageLocation",
+						"type": "AzureBlobFSLocation",
 						"folderPath": "PARENT/RAW",
-						"container": "blob"
+						"fileSystem": "blob"
 					},
 					"columnDelimiter": ",",
 					"escapeChar": "\\",
-					"firstRowAsHeader": true,
+					"firstRowAsHeader": false,
 					"quoteChar": "\""
 				},
 				"schema": []
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/AzureBlobStorage511')]"
+				"[concat(variables('factoryId'), '/linkedServices/AzureDataLakeStoragetoCopy')]"
 			]
 		},
 		{
@@ -192,12 +191,12 @@
 				"typeProperties": {
 					"location": {
 						"type": "HttpServerLocation",
-						"relativeUrl": "CO2%20Emissions_Canada.csv"
+						"relativeUrl": "CO2 Emissions_Canada.csv"
 					},
 					"columnDelimiter": ",",
 					"rowDelimiter": "\n",
 					"escapeChar": "\\",
-					"firstRowAsHeader": true,
+					"firstRowAsHeader": false,
 					"quoteChar": null
 				},
 				"schema": [
@@ -247,12 +246,7 @@
 				"typeProperties": {
 					"url": "[parameters('GitData_properties_typeProperties_url')]",
 					"enableServerCertificateValidation": true,
-					"authenticationType": "Basic",
-					"userName": "[parameters('GitData_properties_typeProperties_userName')]",
-					"password": {
-						"type": "SecureString",
-						"value": "[parameters('GitData_password')]"
-					}
+					"authenticationType": "Anonymous"
 				}
 			},
 			"dependsOn": []
@@ -286,6 +280,23 @@
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/pipelines/CopyPipeline_3nk')]"
 			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/AzureDataLakeStoragetoCopy')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureBlobFS",
+				"typeProperties": {
+					"url": "[parameters('AzureDataLakeStoragetoCopy_properties_typeProperties_url')]",
+					"accountKey": {
+						"type": "SecureString",
+						"value": "[parameters('AzureDataLakeStoragetoCopy_accountKey')]"
+					}
+				}
+			},
+			"dependsOn": []
 		}
 	]
 }

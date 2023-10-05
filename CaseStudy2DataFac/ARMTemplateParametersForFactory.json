@@ -11,14 +11,14 @@
 		"AzureBlobStorage511_connectionString": {
 			"value": ""
 		},
-		"GitData_password": {
+		"AzureDataLakeStoragetoCopy_accountKey": {
 			"value": ""
 		},
 		"GitData_properties_typeProperties_url": {
-			"value": "https://github.com/manojkumarsingh77/Shell2023/blob/97197667d50b617987d21885300178d8acb9d132/EVCarbonEmission/DataSets/"
+			"value": "https://github.com/manojkumarsingh77/Shell2023/tree/main/EVCarbonEmission/DataSets/"
 		},
-		"GitData_properties_typeProperties_userName": {
-			"value": "ohmomar"
+		"AzureDataLakeStoragetoCopy_properties_typeProperties_url": {
+			"value": "https://casestudy2storageacc.dfs.core.windows.net/"
 		}
 	}
 }
