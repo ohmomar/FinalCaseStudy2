@@ -1,0 +1,23 @@
+{
+	"name": "DestinationDataset_3nk",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureBlobStorage511",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"folderPath": "PARENT/RAW",
+				"container": "blob"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": []
+	}
+}
